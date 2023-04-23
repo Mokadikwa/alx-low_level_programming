@@ -2,19 +2,19 @@
 
 /**
  * main - Entry point
- * Description: 'Print all single digit 0-10'
+ * description: 'print alphabets in reverse'
  * Return: Always 0 (success)
  */
 
 int main(void)
-
 {
-	int i;
+	char n = 122;
 
-	for (i = 0; i < 10; i++)
-		putchar(i + '0');
+	while (n >= 97)
+	{
+		putchar(n);
+		n--;
+	}
 	putchar('\n');
-
 	return (0);
-
 }
