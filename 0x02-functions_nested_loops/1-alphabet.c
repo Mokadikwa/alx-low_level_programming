@@ -2,7 +2,7 @@
 #include "main.h"
 #include <unistd.h>
 /**
- * main - Entry point
+ * print_alphabet - Entry point
  * description:'Prints the alphabets'
  * Return: Always 0
  */
