@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_numbers - entry point
@@ -8,11 +9,11 @@
 
 void print_numbers(void)
 {
-	int a;
+	char a;
 
-	if (a = 0; a < 10; a++);
+	for (a = '0'; a <= '9'; a++)
 	{
-		putchar( a + '0');
-		putchar('\n');
+		putchar(a);
 	}
+	putchar('\n');
 }
