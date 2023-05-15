@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
- * strdup - returns a pointer to a newly allocated space in memory
+ * _strdup - returns a pointer to a newly allocated space in memory
  * @str: string to be copied
  *
  * Return: success (pointer to the duplicate string)
@@ -13,6 +13,9 @@
 char *_strdup(char *str)
 {
 	char *new_str;
+
+	if (str == NULL)
+		return (NULL);
 
 	new_str = malloc(strlen(str) + 1);
 
