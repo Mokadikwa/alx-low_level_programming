@@ -1,44 +1,68 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
- * main - multiplies two positive numbers
- * @argc: number of arguments passed to program
- * @argv: array of arguments passed
+ * print_number - prints an integer.
+ * @n: The integer to print.
  *
- * Return: 0 on success, 98 on failure
+ * Return: void.
+ */
+
+void print_number(int n)
+{
+	unsigned int m;
+
+	if (n < 0)
+	{
+		putchar('-');
+		m = -n;
+	}
+	else
+	{
+		m = n;
+	}
+	if (m / 10)
+	{
+		print_number(m / 10);
+	}
+	putchar(m % 10 + '0');
+}
+
+/**
+ * main - multiplies two positive numbers.
+ * @argc: The number of arguments passed.
+ * @argv: The arguments passed.
+ *
+ * Return: 0 on success, 98 on failure.
  */
 
 int main(int argc, char **argv)
 {
-	int num1, num2;
+	int i, j;
 
 	if (argc != 3)
 	{
-		putchar('E');
-		putchar('r');
-		putchar('r');
-		putchar('o');
-		putchar('r');
-		putchar('\n');
+		write(2, "Error\n", 6);
 		return (98);
 	}
-
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-
-	if (num1 == 0 || num2 == 0)
+	for (i = 1; i < argc; i++)
 	{
-		putchar('E');
-		putchar('r');
-		putchar('r');
-		putchar('o');
-		putchar('r');
-		putchar('\n');
-		return (98);
+		for (j = 0; argv[i][j]; j++)
+		{
+			if (argv[i][j] < '0' || argv[i][j] > '9')
+			{
+				write(2, "Error\n", 6);
+				return (98);
+			}
+		}
 	}
-	printf("%d\n", num1 * num2);
+	i = atoi(argv[1]);
+	j = atoi(argv[2]);
+
+	print_number(i * j);
+	putchar('\n');
 
 	return (0);
 }
