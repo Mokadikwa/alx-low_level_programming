@@ -7,4 +7,18 @@
  * Return: Results
  */
 
-void print_number(int n)
+void print_numbers(int n)
+{
+	
+	if (n < 0)
+	{
+		n = -n;
+		putchar('-');
+	}
+	if (n / 10)
+	{
+		putchar(n /10);
+	}
+	putchar(n % 10 + '0');
+	
+}
