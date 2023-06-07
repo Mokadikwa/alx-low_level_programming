@@ -10,12 +10,5 @@
 
 void _puts_recursion(char *s)
 {
-	int n = 0;
-
-	while (s[n] != '\0')
-	{
-		putchar(s[n]);
-			n++;
-	}
-	putchar('\n');
+	puts(s);
 }
