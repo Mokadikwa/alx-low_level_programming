@@ -28,5 +28,4 @@ char *str_concat(char *s1, char *s2)
 	strcpy(new_str + len1, s2);
 
 	return (new_str);
-	free(new_str);
 }
