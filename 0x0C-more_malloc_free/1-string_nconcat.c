@@ -22,27 +22,33 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	length1 = 0;
 	length2 = 0;
 	totallength = 0;
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
 
-	length1 = strlen(s1);
-	length2 = strlen(s2);
-	if (n >= length2)
-		n = length2;
+	while (s1 && s1[length1])
+		length1++;
+	while (s2 && s2[length2])
+		length2++;
 
-	totallength = length1 + n;
+	if (n < length2)
+		result = malloc(sizeof(char) * (length1 + n + 1));
+	else
+		result = malloc(sizeof(char) *(length1 + length2 + 1));
 
-	result = malloc(sizeof(char) * (totallength + 1));
-
-	if (result == NULL)
-	{
+	if (!result)
 		return (NULL);
+
+	unsigned int i = 0, j = 0;
+	while (i < length1)
+	{
+		result[i] = s1[i];
+		i++;
 	}
-	strncpy(result, s1, length1);
-	strncat(result, s2, n);
-	result[totallength] = '\0';
+	while (n < length2 && i < (length1 + n))
+		result[i++] = s2[j++];
+
+	while (n >= length2 && i < (length1 + length2))
+		result[i++] = s2[j++];
+
+	result[i] = '\0';
 
 	return (result);
 }
