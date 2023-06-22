@@ -21,6 +21,12 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	{
 		return;
 	}
+
+	if (n == 0)
+	{
+		return;
+	}
+
 	for (i = 0; i < n; i++)
 	{
 		p = va_arg(np, int);
