@@ -31,7 +31,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				{
-					const char *str = va_arg(args, const char *);
+					char *str = va_arg(args, char *);
 
 					if (str == NULL)
 						str = "(nil)";
@@ -39,10 +39,11 @@ void print_all(const char * const format, ...)
 				}
 				break;
 			default:
-				break;
+				fmt++;
+				continue;
 		}
 		sep = ", ";
-		++fmt;
+		fmt++;
 	}
 	printf("\n");
 	va_end(args);
